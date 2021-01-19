@@ -4,13 +4,20 @@
 
 .App-header {
   background-color: #3557c8;
-  min-height: 7vh;
+  height: 7vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #ffffff;
+
+  /* Set the bar to fixed position */
+  position: fixed;
+  /* Position the bar at the top of the page */
+  top: 0;
+  /* Full width */
+  width: 100%;
 }
 
 .chat-container {
@@ -20,7 +27,7 @@
   justify-content: flex-start;
   align-items: stretch;
 
-  margin-top: 1.5vh;
+  margin-top: 8.5vh;
   margin-left: auto;
   margin-right: auto;
 }
