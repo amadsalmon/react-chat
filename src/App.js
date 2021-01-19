@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Message from "./Message";
 import "./App.css";
 
+function sendButtonClicked() {
+  console.log("sendButtonClicked");
+}
 function App() {
   return (
     <div className="App">
@@ -50,6 +53,25 @@ function App() {
         <Message
           type="sent"
           content="Oh come on.... you didn't just block me!?"
+        />
+      </div>
+      <div className="composing-bar">
+        <input
+          type="text"
+          id="messageToSend-textField"
+          name="messageToSend"
+          required
+          minLength="1"
+          size="30"
+          placeholder="Type your message here..."
+          spellCheck="true"
+        ></input>
+        <input
+          type="image"
+          id="sendButton"
+          alt="Send"
+          src="https://icongr.am/feather/arrow-up-circle.svg?size=128&color=ffffff"
+          onClick={sendButtonClicked}
         />
       </div>
     </div>
