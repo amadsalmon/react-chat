@@ -1,12 +1,9 @@
 import React, { useState } from "react";
+//import Chat, { displayChat } from "./Chat";
 import Message from "./Message";
 import "./App.css";
 
-function sendButtonClicked() {
-  console.log("sendButtonClicked");
-}
-
-function App() {
+export default function App() {
   const [messages, setMessages] = useState([
     { type: "sent", content: "Hey Mark! How are you?" },
     { type: "received", content: "Hi, good and you?" },
@@ -43,6 +40,26 @@ function App() {
     { type: "sent", content: "Oh come on.... you didn't just block me!?" },
   ]);
 
+  const addMessage = (typeToAdd, contentToAdd) => {
+    console.log(
+      "addMessage : (type, content)=(" + typeToAdd + "," + contentToAdd + ");"
+    );
+    const messageToAdd = { type: typeToAdd, content: contentToAdd };
+    setMessages(messages.concat(messageToAdd));
+  };
+
+  function sendButtonClicked() {
+    const messageToSendTextField = document.getElementById(
+      "messageToSend-textField"
+    );
+    var messageToSend = messageToSendTextField.value;
+    if (messageToSend !== "") {
+      //console.log("messageToSend=" + messageToSend);
+      addMessage("sent", messageToSend);
+      //messageToSendTextField.value = "";
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">ReactChat</header>
@@ -61,7 +78,7 @@ function App() {
           size="30"
           placeholder="Type your message here..."
           spellCheck="true"
-        ></input>
+        />
         <input
           type="image"
           id="sendButton"
@@ -73,5 +90,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
